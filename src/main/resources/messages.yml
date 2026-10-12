@@ -1,0 +1,360 @@
+# ============================================================
+#  CoinShop - Texte
+#  Format: MiniMessage, z. B. <gold>gold</gold>, <bold>fett</bold>, <red>rot</red>
+#  Platzhalter wie <coins> oder <player> NICHT verändern/löschen.
+#  Wichtig: Jede Zeile mit Text steht in Anführungszeichen "..."
+#  Nach Änderungen: /coinsadmin reload
+# ============================================================
+
+prefix: "<gold><bold>Coins</bold></gold> <dark_gray>»</dark_gray> <gray>"
+
+# ---------- Allgemein ----------
+only-players: "<red>Dieser Befehl ist nur für Spieler."
+no-permission: "<red>Dazu hast du keine Berechtigung."
+error: "<red>Es ist ein Fehler aufgetreten. Bitte melde das einem Admin."
+player-unknown: "<red>Der Spieler <white><player></white> ist unbekannt (er muss schon einmal auf dem Server gewesen sein)."
+invalid-amount: "<red>Bitte gib eine ganze Zahl zwischen 1 und <max> an."
+not-enough: "<red>Du hast nicht genug Coins."
+
+# ---------- Kontostand / Überweisung / Rangliste ----------
+balance-self: "Du hast <gold><coins> Coins</gold>."
+balance-other: "<white><player></white> hat <gold><coins> Coins</gold>."
+pay-usage: "<red>Benutzung: /pay [Spieler] [Betrag]"
+pay-self: "<red>Du kannst dir nicht selbst Coins überweisen."
+pay-sent: "Du hast <gold><coins> Coins</gold> an <white><player></white> überwiesen."
+pay-received: "Du hast <gold><coins> Coins</gold> von <white><player></white> erhalten."
+baltop-header: "<gold>---- Die reichsten Spieler ----"
+baltop-line: "<yellow><rank>.</yellow> <white><player></white> <dark_gray>-</dark_gray> <gold><coins> Coins</gold>"
+baltop-empty: "<gray>Noch hat niemand Coins."
+
+# ---------- Erfolge und Einkommen ----------
+achievement-reward: "<green>Erfolg geschafft!</green> <gray>[<tier>]</gray> Belohnung: <gold>+<coins> Coins</gold>"
+daily-income: "<green>Tägliches Einkommen:</green> <gold>+<coins> Coins</gold> <gray>(Mehr Einkommen gibt es unter /shop > Investitionen)"
+
+# ---------- Admin ----------
+admin-usage: "<red>Benutzung: /coinsadmin give|take|set [Spieler] [Betrag] | resetshop | reload"
+admin-given: "<white><player></white> hat <gold><coins> Coins</gold> bekommen."
+admin-taken: "<gold><coins> Coins</gold> wurden <white><player></white> abgezogen."
+admin-set: "Kontostand von <white><player></white> auf <gold><coins> Coins</gold> gesetzt."
+admin-reload: "<green>Einstellungen und Texte neu geladen."
+admin-shop-reset: "<green>Der Server-Shop wurde neu gemischt."
+admin-target-too-poor: "<red><player> hat nicht genug Coins."
+
+# ---------- Server-Shop (Kauf) ----------
+server-offer-outdated: "<red>Dieses Angebot gibt es nicht mehr. Das Menü wurde aktualisiert."
+server-limit-reached: "<red>Du hast dieses Angebot heute schon <limit>x gekauft."
+inventory-full: "<red>Dein Inventar ist zu voll. Mach Platz und versuch es nochmal."
+server-bought: "Du hast <white><amount>x <item></white> für <gold><coins> Coins</gold> gekauft."
+
+# ---------- Spieler-Shop ----------
+hold-item: "<red>Halte das Item, das du verkaufen willst, in der Hand."
+item-blacklisted: "<red>Dieses Item darf nicht im Spieler-Shop angeboten werden."
+price-range: "<red>Der Preis muss zwischen <min> und <max> Coins liegen."
+no-free-slot: "<red>Du hast keinen freien Verkaufs-Slot. Kaufe unter <white>/shop > Spieler-Shop > Meine Angebote</white> einen Slot (nächster Slot: <gold><price> Coins</gold>)."
+slot-too-expensive: "<red>Dir fehlen Coins: Der nächste Slot kostet <gold><price> Coins</gold>."
+slot-max: "<red>Du hast bereits die Höchstzahl von <white><max> Slots</white>."
+slot-bought-max: "<green>Slot gekauft!</green> Du hast jetzt <white><slots> Slots</white> - das ist das Maximum."
+slot-bought: "<green>Slot gekauft!</green> Du hast jetzt <white><slots> Slots</white>. Der nächste Slot kostet <gold><price> Coins</gold>."
+listing-fee-too-high: "<red>Dir fehlen Coins für die Einstellgebühr (<fee> Coins)."
+ask-price: "<yellow>Schreibe jetzt den <bold>Gesamtpreis</bold> in den Chat (<min> bis <max> Coins). Zum Abbrechen schreibe <white>abbrechen</white>."
+ask-price-info: "<gray>Angeboten wird: <white><amount>x <item></white> <dark_gray>|</dark_gray> Einstellgebühr: <gold>mind. <fee> Coins</gold> (wird nicht erstattet)"
+ask-cancelled: "<gray>Abgebrochen."
+ask-invalid: "<red>Das war keine gültige Zahl. Vorgang abgebrochen - starte neu über /shop."
+listing-created: "<green>Angebot erstellt:</green> <white><amount>x <item></white> für <gold><price> Coins</gold> <gray>(Gebühr: <fee> Coins)"
+listing-gone: "<red>Dieses Angebot gibt es nicht mehr."
+buy-own: "<red>Du kannst dein eigenes Angebot nicht kaufen. Du kannst es unter 'Meine Angebote' abbrechen."
+player-bought: "Du hast <white><amount>x <item></white> für <gold><price> Coins</gold> gekauft."
+listing-sold: "<green>Verkauft:</green> <white><amount>x <item></white> für <gold><coins> Coins</gold> <gray>(nach Steuer)"
+listing-cancelled: "<gray>Angebot abgebrochen. Das Item ist wieder bei dir."
+listing-cancelled-claim: "<gray>Angebot abgebrochen. Dein Inventar war voll - das Item liegt in der <white>Abholung</white>."
+listing-expired: "<yellow>Eines deiner Angebote ist abgelaufen. Du findest das Item unter <white>/shop > Spieler-Shop > Meine Angebote > Abholung</white>."
+claim-taken: "<gray>Du hast das Item abgeholt."
+claims-waiting: "<yellow>Du hast <count> Item(s) zur Abholung: <white>/shop > Spieler-Shop > Meine Angebote > Abholung</white>."
+
+# ---------- Glücksrad ----------
+wheel-not-enough: "<red>Eine Drehung kostet <price> Coins - so viel hast du nicht."
+wheel-nothing: "<gray>Leider eine Niete. Dein Einsatz geht auf das Shop-Konto. Mehr Glück beim nächsten Mal!"
+wheel-win: "<green>Gewonnen!</green> Du bekommst <gold><coins> Coins</gold> vom Shop-Konto."
+wheel-win-capped: "<yellow>Gewonnen, aber das Shop-Konto war nicht voll genug.</yellow> Ausgezahlt: <gold><coins> Coins</gold>."
+wheel-jackpot: "<gold><bold>JACKPOT!</bold></gold> Du hast das ganze Shop-Konto geknackt: <gold><coins> Coins</gold>!"
+wheel-jackpot-broadcast: "<gold><bold>JACKPOT!</bold></gold> <white><player></white> hat am Glücksrad das gesamte Shop-Konto gewonnen: <gold><coins> Coins</gold>!"
+
+# ---------- Investitionen ----------
+invest-taken: "<red>Dieses Item gehört schon jemandem."
+invest-bought: "Du hast <white><item></white> aus dem Set <white><set></white> für <gold><price> Coins</gold> gekauft. <gray>Dein Einkommen aus diesem Set: <gold>+<income> Coins/Tag</gold>"
+invest-set-complete: "<green><bold>Set komplett!</bold></green> Du besitzt jetzt alle Items von <white><set></white> und bekommst das volle Einkommen."
+transfer-ask-target: "<yellow>An wen möchtest du <white><item></white> übertragen? Schreibe den Spielernamen in den Chat (oder <white>abbrechen</white>)."
+transfer-confirm: "<yellow>Möchtest du <white><item></white> aus dem Set <white><set></white> wirklich an <white><player></white> übertragen? Schreibe <white>ja</white> zum Bestätigen oder <white>abbrechen</white>."
+transfer-self: "<red>Du kannst nicht an dich selbst übertragen."
+transfer-done: "Du hast <white><item></white> (Set <white><set></white>) an <white><player></white> übertragen."
+transfer-received: "<white><player></white> hat dir <white><item></white> aus dem Set <white><set></white> übertragen!"
+transfer-failed: "<red>Die Übertragung ist fehlgeschlagen (das Item gehört dir nicht mehr)."
+
+# ---------- Börse ----------
+stock-update-up: "<aqua>Börse:</aqua> Neuer Kurs: <gold><price> Coins</gold> <green>(▲ +<diff>)</green>"
+stock-update-down: "<aqua>Börse:</aqua> Neuer Kurs: <gold><price> Coins</gold> <red>(▼ -<diff>)</red>"
+stock-update-same: "<aqua>Börse:</aqua> Neuer Kurs: <gold><price> Coins</gold> <gray>(unverändert)</gray>"
+stock-buy-prompt: "<yellow>Schreibe jetzt, für wie viele Coins du Anteile kaufen möchtest (mindestens <min>). Kurs: <gold><price> Coins</gold>, Gebühr: <percent>%. Zum Abbrechen schreibe <white>abbrechen</white>."
+stock-sell-prompt: "<yellow>Schreibe jetzt, wie viele Anteile du verkaufen möchtest (du hast <shares>), oder <white>abbrechen</white>."
+stock-too-little: "<red>Dafür bekommst du keinen ganzen Anteil. Ein Anteil kostet <price> Coins plus <percent>% Gebühr - zahle mindestens <min> Coins."
+stock-bought: "Du hast <white><shares> Anteile</white> zum Kurs von <gold><price> Coins</gold> gekauft. <gray>Gezahlt: <gold><paid> Coins</gold> (davon <fee> Gebühr)"
+stock-sold: "Du hast <white><shares> Anteile</white> zum Kurs von <gold><price> Coins</gold> verkauft und <gold><coins> Coins</gold> erhalten. <gray>(Gebühr: <fee> Coins)"
+stock-no-shares: "<red>Du besitzt keine Anteile."
+stock-not-enough-shares: "<red>So viele Anteile hast du nicht (du hast <shares>)."
+
+# ---------- Menüs ----------
+gui:
+  filler-name: " "
+  back-name: "<!italic><red>Zurück"
+  close-name: "<!italic><red>Schließen"
+  balance-name: "<!italic><gold>Dein Kontostand"
+  balance-lore:
+    - "<!italic><white><coins> Coins"
+
+  main:
+    title: "Shop"
+    server-name: "<!italic><gold><bold>Server-Shop"
+    server-lore:
+      - "<!italic><gray>10 Angebote, jeden Tag um <white><hour>:00 Uhr</white> neu."
+      - "<!italic><gray>Feste Preise, auch verzauberte"
+      - "<!italic><gray>Rüstung und Bücher."
+      - ""
+      - "<!italic><yellow>Klicke zum Öffnen"
+    player-name: "<!italic><green><bold>Spieler-Shop"
+    player-lore:
+      - "<!italic><gray>Kaufe Items von anderen Spielern"
+      - "<!italic><gray>oder biete selbst etwas an."
+      - ""
+      - "<!italic><yellow>Klicke zum Öffnen"
+    wheel-name: "<!italic><light_purple><bold>Glücksrad"
+    wheel-lore:
+      - "<!italic><gray>Drehe für <gold><price> Coins</gold> und gewinne"
+      - "<!italic><gray>Coins aus dem Konto des Shops."
+      - "<!italic><gray>Jackpot (ganzes Konto): <white>1 zu <odds>"
+      - ""
+      - "<!italic><yellow>Klicke zum Öffnen"
+    invest-name: "<!italic><aqua><bold>Investitionen"
+    invest-lore:
+      - "<!italic><gray>Kaufe Items aus Sets und erhöhe"
+      - "<!italic><gray>dein tägliches Einkommen."
+      - ""
+      - "<!italic><yellow>Klicke zum Öffnen"
+    shop-account-name: "<!italic><gold><bold>Konto des Shops"
+    shop-account-lore:
+      - "<!italic><white><coins> Coins"
+      - ""
+      - "<!italic><gray>Alle Einnahmen des Shops landen hier"
+      - "<!italic><gray>und sind im Glücksrad gewinnbar."
+
+  server:
+    title: "Server-Shop"
+    timer-name: "<!italic><aqua>Neue Angebote in"
+    timer-lore:
+      - "<!italic><white><time>"
+    empty-name: "<!italic><red>Keine Angebote verfügbar"
+    offer-lore:
+      - ""
+      - "<!italic><gray>Preis: <gold><price> Coins"
+      - "<!italic><gray>Heute gekauft: <white><bought>/<limit>"
+      - ""
+      - "<!italic><yellow>Linksklick zum Kaufen"
+    offer-lore-unlimited:
+      - ""
+      - "<!italic><gray>Preis: <gold><price> Coins"
+      - ""
+      - "<!italic><yellow>Linksklick zum Kaufen"
+
+  player:
+    title: "Spieler-Shop (Seite <page>)"
+    listing-lore:
+      - ""
+      - "<!italic><gray>Preis: <gold><price> Coins"
+      - "<!italic><gray>Verkäufer: <white><seller>"
+      - "<!italic><gray>Läuft ab in: <white><time>"
+      - ""
+      - "<!italic><yellow>Linksklick zum Kaufen"
+    own-listing-lore:
+      - ""
+      - "<!italic><gray>Preis: <gold><price> Coins"
+      - "<!italic><green>Das ist dein Angebot"
+      - "<!italic><gray>(Abbrechen unter 'Meine Angebote')"
+    prev-name: "<!italic><yellow>Vorherige Seite"
+    next-name: "<!italic><yellow>Nächste Seite"
+    mine-name: "<!italic><aqua>Meine Angebote"
+    mine-lore:
+      - "<!italic><gray>Deine Angebote ansehen,"
+      - "<!italic><gray>Slots kaufen und Abholung."
+    sell-name: "<!italic><green><bold>Item anbieten"
+    sell-lore:
+      - "<!italic><gray>1. Item in die Hand nehmen"
+      - "<!italic><gray>2. Hier klicken"
+      - "<!italic><gray>3. Gesamtpreis in den Chat schreiben"
+      - ""
+      - "<!italic><gray>Einstellgebühr: <white><fee_percent>%</white> (mind. <min_fee> Coins)"
+      - "<!italic><gray>Verkaufssteuer: <white><tax_percent>%"
+      - "<!italic><gray>Du brauchst einen freien Slot"
+      - "<!italic><dark_gray>Alternativ: /shop sell [Preis]"
+    empty-name: "<!italic><gray>Noch keine Angebote"
+
+  mine:
+    title: "Meine Angebote (Seite <page>)"
+    listing-lore:
+      - ""
+      - "<!italic><gray>Preis: <gold><price> Coins"
+      - "<!italic><gray>Läuft ab in: <white><time>"
+      - ""
+      - "<!italic><red>Linksklick: Angebot abbrechen"
+      - "<!italic><dark_gray>(Gebühr wird nicht erstattet)"
+    slots-name: "<!italic><green><bold>Slot kaufen"
+    slots-lore:
+      - "<!italic><gray>Belegt: <white><used>/<total> Slots"
+      - "<!italic><gray>Nächster Slot: <gold><price> Coins"
+      - "<!italic><dark_gray>Jeder weitere Slot kostet das Doppelte (maximal 32 Slots)."
+      - ""
+      - "<!italic><yellow>Klicke zum Kaufen"
+    slots-lore-max:
+      - "<!italic><gray>Belegt: <white><used>/<total> Slots"
+      - "<!italic><gold>Du hast die Höchstzahl an Slots erreicht."
+    claims-name: "<!italic><gold>Abholung"
+    claims-lore:
+      - "<!italic><white><count> Item(s) warten"
+      - "<!italic><gray>Abgelaufene oder abgebrochene"
+      - "<!italic><gray>Angebote landen hier."
+    empty-name: "<!italic><gray>Du hast keine aktiven Angebote"
+
+  claims:
+    title: "Abholung"
+    lore:
+      - ""
+      - "<!italic><gray>Grund: <white><reason>"
+      - ""
+      - "<!italic><yellow>Linksklick zum Abholen"
+    reason-expired: "Angebot abgelaufen"
+    reason-cancelled: "Angebot abgebrochen"
+    empty-name: "<!italic><gray>Nichts zum Abholen"
+
+  wheel:
+    title: "Glücksrad"
+    pointer-name: "<!italic><yellow><bold>Gewinnfeld"
+    spin-name: "<!italic><green><bold>Drehen!"
+    spin-lore:
+      - "<!italic><gray>Einsatz: <gold><price> Coins"
+      - "<!italic><gray>Geht auf das Konto des Shops."
+      - ""
+      - "<!italic><yellow>Klicke zum Drehen"
+    account-name: "<!italic><gold><bold>Konto des Shops"
+    account-lore:
+      - "<!italic><white><coins> Coins"
+      - "<!italic><gray>Das ist der Jackpot!"
+    table-name: "<!italic><aqua>Gewinnchancen"
+    table-line: "<!italic><gray><label>: <white><chance>%"
+    table-win: "<!italic><gray>Chance auf irgendeinen Gewinn: <white>1 zu <odds>"
+    table-jackpot: "<!italic><light_purple>Jackpot (ganzes Konto): <white>1 zu <odds>"
+    seg-nothing: "<!italic><gray>Niete"
+    seg-coins: "<!italic><gold>+<coins> Coins"
+    seg-jackpot: "<!italic><light_purple><bold>JACKPOT: <coins> Coins"
+
+  invest:
+    title: "Investitionen"
+    set-title: "Set: <set>"
+    set-name: "<!italic><gold><bold><set>"
+    set-lore-head:
+      - ""
+      - "<!italic><gray>Preis pro Item: <gold><price> Coins"
+      - "<!italic><gray>Einkommen (Set komplett): <gold>+<income> Coins/Tag"
+      - "<!italic><gray>Dein Anteil: <white><owned>/<total></white> <gray>= <yellow>+<yours> Coins/Tag"
+      - ""
+    item-line-free: "<!italic><gray>- <item><gray>: <green>frei"
+    item-line-owned: "<!italic><gray>- <item><gray>: <white><owner>"
+    item-line-mine: "<!italic><gray>- <item><gray>: <green><owner> (du)"
+    set-lore-foot:
+      - ""
+      - "<!italic><yellow>Klicke für Details"
+    income-name: "<!italic><gold><bold>Dein tägliches Einkommen"
+    income-lore:
+      - "<!italic><gray>Grundeinkommen: <white><base> Coins"
+      - "<!italic><gray>Aus Sets: <white><sets> Coins"
+      - "<!italic><gray>Gesamt: <gold><total> Coins/Tag"
+      - ""
+      - "<!italic><dark_gray>Auszahlung täglich um <hour>:00 Uhr"
+    item-lore-free:
+      - ""
+      - "<!italic><gray>Set: <white><set>"
+      - "<!italic><gray>Preis: <gold><price> Coins"
+      - "<!italic><gray>Besitzer: <green>frei"
+      - ""
+      - "<!italic><yellow>Linksklick zum Kaufen"
+    item-lore-mine:
+      - ""
+      - "<!italic><gray>Set: <white><set>"
+      - "<!italic><gray>Besitzer: <green>du"
+      - ""
+      - "<!italic><yellow>Linksklick: an einen Spieler übertragen"
+    item-lore-other:
+      - ""
+      - "<!italic><gray>Set: <white><set>"
+      - "<!italic><gray>Besitzer: <white><owner>"
+    stock-name: "<!italic><green><bold>Börse"
+    stock-lore:
+      - "<!italic><gray>Kaufe Anteile und verdiene (oder"
+      - "<!italic><gray>verliere) je nach Börsenkurs."
+      - ""
+      - "<!italic><gray>Aktueller Kurs: <gold><price> Coins"
+      - ""
+      - "<!italic><yellow>Klicke zum Öffnen"
+
+  stock:
+    title: "Börse"
+    price-name: "<!italic><gold><bold>Aktueller Kurs: <price> Coins"
+    change-up: "<!italic><green>▲ +<diff> Coins seit gestern (+<percent>%)"
+    change-down: "<!italic><red>▼ -<diff> Coins seit gestern (-<percent>%)"
+    change-same: "<!italic><gray>Unverändert seit gestern"
+    history-line: "<!italic><gray>Verlauf: <white><history>"
+    price-lore-foot:
+      - ""
+      - "<!italic><gray>Der Kurs liegt zwischen <white><min></white> und <white><max> Coins</white>."
+      - "<!italic><gray>Neuer Kurs täglich um <white><hour>:00 Uhr</white>."
+      - "<!italic><gray>Gebühr bei Kauf und Verkauf: <white><percent>%"
+    buy-name: "<!italic><green><bold>Kaufen für <coins> Coins"
+    buy-lore:
+      - "<!italic><gray>Du bekommst: <white><shares> Anteile"
+      - "<!italic><gray>Gebühr: <white><fee> Coins"
+      - "<!italic><gray>Du zahlst: <gold><paid> Coins"
+      - ""
+      - "<!italic><yellow>Klicke zum Kaufen"
+    buy-lore-too-little:
+      - "<!italic><red>Dafür gibt es keinen ganzen Anteil."
+      - "<!italic><gray>Mindestens <white><min> Coins</white>."
+    buy-custom-name: "<!italic><green><bold>Kaufen: eigener Betrag"
+    buy-custom-lore:
+      - "<!italic><gray>Schreibe den Betrag in den Chat."
+      - "<!italic><gray>Mindestens <white><min> Coins</white>."
+      - ""
+      - "<!italic><yellow>Klicke zum Eingeben"
+    sell-all-name: "<!italic><red><bold>Alles verkaufen"
+    sell-all-lore:
+      - "<!italic><gray>Anteile: <white><shares>"
+      - "<!italic><gray>Wert: <white><gross> Coins"
+      - "<!italic><gray>Gebühr: <white><fee> Coins"
+      - "<!italic><gray>Du bekommst: <gold><payout> Coins"
+      - ""
+      - "<!italic><yellow>Klicke zum Verkaufen"
+    sell-all-lore-empty:
+      - "<!italic><gray>Du besitzt keine Anteile."
+    sell-custom-name: "<!italic><red><bold>Verkaufen: eigene Anzahl"
+    sell-custom-lore:
+      - "<!italic><gray>Schreibe die Anzahl der Anteile"
+      - "<!italic><gray>in den Chat."
+      - ""
+      - "<!italic><yellow>Klicke zum Eingeben"
+    depot-name: "<!italic><aqua><bold>Dein Depot"
+    depot-empty:
+      - "<!italic><gray>Du besitzt keine Anteile."
+    depot-lore:
+      - "<!italic><gray>Anteile: <white><shares>"
+      - "<!italic><gray>Eingekauft für: <white><invested> Coins"
+      - "<!italic><gray>Wert jetzt: <white><gross> Coins"
+      - "<!italic><gray>Verkaufserlös (nach Gebühr): <gold><payout> Coins"
+    depot-profit: "<!italic><green>Kursgewinn: +<diff> Coins (vor Gebühr)"
+    depot-loss: "<!italic><red>Kursverlust: -<diff> Coins (vor Gebühr)"
+    depot-even: "<!italic><gray>Kein Kursgewinn oder -verlust"

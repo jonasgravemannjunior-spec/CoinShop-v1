@@ -1,0 +1,428 @@
+# ============================================================
+#  CoinShop - Einstellungen
+#  Nach Änderungen im Spiel / in der Konsole: /coinsadmin reload
+#  Hinweis: Wenn du eine alte config.yml hast, lösche sie einmal
+#  (plugins/CoinShop/config.yml), damit diese neue erzeugt wird.
+# ============================================================
+
+# ---------------- Erfolge (Achievements) ----------------
+# Je schwieriger der Erfolg, desto mehr Coins. So wird die Belohnung bestimmt:
+#   1. Steht der Erfolg unter "overrides"            -> genau dieser Betrag
+#   2. Steht er in der Liste "advancements" einer Stufe -> Belohnung dieser Stufe
+#   3. Sonst nach Art des Erfolgs im Spiel (Aufgabe / Ziel / Herausforderung, siehe type-tiers)
+# Erfolge heißen so wie im Spiel, z. B. "minecraft:story/mine_diamond".
+# (Namen, die es nicht gibt, schaden nicht - sie werden einfach nie getroffen.)
+achievements:
+  enabled: true
+  # Welche Stufe gilt standardmäßig für welche Art von Erfolg
+  type-tiers:
+    task: leicht          # normale Aufgabe (eckiges Symbol)
+    goal: mittel          # Ziel (abgerundetes Symbol)
+    challenge: schwer     # Herausforderung (gezacktes Symbol)
+  tiers:
+    leicht: {name: "Leicht", reward: 10}
+    mittel: {name: "Mittel", reward: 30}
+    schwer: {name: "Schwer", reward: 100}
+    # Besonders schwierige Erfolge (handverlesen, zählt vor der Art des Erfolgs)
+    sehr-schwer:
+      name: "Sehr schwer"
+      reward: 250
+      advancements:
+        - "minecraft:end/kill_dragon"
+        - "minecraft:end/dragon_egg"
+        - "minecraft:end/elytra"
+        - "minecraft:end/respawn_dragon"
+        - "minecraft:end/dragon_breath"
+        - "minecraft:nether/summon_wither"
+        - "minecraft:nether/get_wither_skull"
+        - "minecraft:nether/create_beacon"
+        - "minecraft:nether/netherite_armor"
+        - "minecraft:nether/obtain_ancient_debris"
+        - "minecraft:nether/uneasy_alliance"
+        - "minecraft:nether/ride_strider_in_overworld_lava"
+        - "minecraft:adventure/totem_of_undying"
+        - "minecraft:adventure/hero_of_the_village"
+        - "minecraft:adventure/very_very_frightening"
+        - "minecraft:adventure/sniper_duel"
+        - "minecraft:adventure/arbalistic"
+        - "minecraft:adventure/spyglass_at_dragon"
+        - "minecraft:adventure/overoverkill"
+        - "minecraft:husbandry/obtain_netherite_hoe"
+    extrem:
+      name: "Extrem"
+      reward: 600
+      advancements:
+        - "minecraft:adventure/kill_all_mobs"
+        - "minecraft:adventure/adventuring_time"
+        - "minecraft:adventure/trim_with_all_exclusive_armor_patterns"
+        - "minecraft:nether/all_effects"
+        - "minecraft:nether/all_potions"
+        - "minecraft:nether/create_full_beacon"
+        - "minecraft:husbandry/bred_all_animals"
+        - "minecraft:husbandry/complete_catalogue"
+        - "minecraft:husbandry/balanced_diet"
+        - "minecraft:husbandry/leash_all_frog_variants"
+        - "minecraft:husbandry/whole_pack"
+  # Einzelne Erfolge mit einem festen Betrag (hat Vorrang vor allem anderen). Beispiel:
+  overrides:
+    # "minecraft:story/mine_diamond": 50
+
+# ---------------- Coins allgemein ----------------
+coins:
+  # Größter Betrag, der auf einmal überwiesen werden darf (Schutz vor Tippfehlern)
+  max-transfer: 1000000000
+
+# ---------------- Tägliches Einkommen ----------------
+# Wird für JEDEN bekannten Spieler (auch offline) zusammen mit dem Shop-Wechsel ausgezahlt.
+# Dazu kommt das Einkommen aus Investitions-Sets. Diese Coins werden neu erzeugt (nicht vom Shop-Konto genommen).
+daily-income:
+  base: 10
+
+# ---------------- Server-Shop ----------------
+server-shop:
+  # Wie viele Angebote gleichzeitig (das Menü ist für 10 gebaut - nicht ändern)
+  offers: 10
+  # Zeitzone und Uhrzeit des täglichen Wechsels
+  timezone: "Europe/Berlin"
+  reset-hour: 12
+  # Wie oft ein Spieler EIN Angebot pro Tag kaufen darf (0 = unbegrenzt)
+  purchase-limit-per-offer: 3
+
+  # Chance (0.0 bis 1.0), dass ein Angebotsplatz ein verzaubertes Rüstungsteil bzw. ein
+  # Verzauberungsbuch ist. Der Rest sind normale Items.
+  enchanted-armor-chance: 0.12
+  enchanted-book-chance: 0.18
+
+  # Wie stark teure Items seltener erscheinen. Gewicht = 1 / (1 + Preis / rarity-divisor).
+  # Größerer Wert = teure Items erscheinen häufiger. Sehr großer Wert (z. B. 1000000) = alle gleich oft.
+  rarity-divisor: 1000
+
+  # Was Verzauberungen kosten (Coins PRO STUFE). Rüstungspreis = Preis des Rüstungsteils + Summe der
+  # Verzauberungen; ein Buch kostet nur die Verzauberung (mindestens 250). Der Name ist der Spielname
+  # der Verzauberung. Alles, was hier fehlt, kostet "default".
+  enchant-cost-per-level:
+    default: 500
+    protection: 1250
+    fire_protection: 750
+    blast_protection: 1000
+    projectile_protection: 750
+    feather_falling: 600
+    thorns: 750
+    unbreaking: 1000
+    mending: 7500
+    respiration: 750
+    aqua_affinity: 1500
+    depth_strider: 1000
+    frost_walker: 2000
+    soul_speed: 2000
+    swift_sneak: 2500
+    sharpness: 1250
+    smite: 600
+    bane_of_arthropods: 500
+    knockback: 600
+    fire_aspect: 1000
+    looting: 1250
+    sweeping_edge: 1000
+    efficiency: 1000
+    silk_touch: 4000
+    fortune: 1750
+    power: 1250
+    punch: 600
+    flame: 1500
+    infinity: 5000
+    luck_of_the_sea: 1000
+    lure: 750
+    loyalty: 750
+    impaling: 750
+    riptide: 1500
+    channeling: 3000
+    multishot: 2500
+    quick_charge: 1000
+    piercing: 750
+    density: 1500
+    breach: 2000
+    wind_burst: 3000
+
+  # Preis pro EINZELNEM Item, wenn unten nichts passt
+  default-price: 15
+
+  # Diese Items erscheinen NIE (Dinge, die es im Survival nicht gibt oder die sinnlos wären).
+  # Mit * am Anfang/Ende kannst du Gruppen angeben, z. B. "*_SPAWN_EGG".
+  exclude:
+    - DRAGON_EGG
+    - "*_SPAWN_EGG"
+    - "LEGACY_*"
+    - "*COMMAND_BLOCK*"
+    - "INFESTED_*"
+    - BEDROCK
+    - BARRIER
+    - LIGHT
+    - STRUCTURE_BLOCK
+    - STRUCTURE_VOID
+    - JIGSAW
+    - DEBUG_STICK
+    - KNOWLEDGE_BOOK
+    - SPAWNER
+    - TRIAL_SPAWNER
+    - VAULT
+    - REINFORCED_DEEPSLATE
+    - END_PORTAL_FRAME
+    - BUDDING_AMETHYST
+    - FARMLAND
+    - CHORUS_PLANT
+    - FROGSPAWN
+    - PETRIFIED_OAK_SLAB
+    - PLAYER_HEAD
+    - WRITTEN_BOOK
+    - FILLED_MAP
+    - POTION
+    - SPLASH_POTION
+    - LINGERING_POTION
+    - TIPPED_ARROW
+    - SUSPICIOUS_STEW
+    - GOAT_HORN
+    - OMINOUS_BOTTLE
+    - ENCHANTED_BOOK
+    - TEST_BLOCK
+    - TEST_INSTANCE_BLOCK
+
+  # Preise pro EINZELNEM Item. Gesamtpreis = Menge x Preis (fest für den ganzen Tag).
+  # Es gilt der ERSTE passende Eintrag von oben nach unten. Genaue Namen zuerst, Gruppen (mit *) danach.
+  # Die seltensten Items kosten rund 100000 Coins - alles andere ist daran angelehnt.
+  prices:
+    # --- Die Seltensten (bis 100000 Coins) ---
+    NETHERITE_BLOCK: 100000
+    ELYTRA: 37500
+    BEACON: 30000
+    NETHER_STAR: 25000
+    DRAGON_HEAD: 22500
+    NETHERITE_INGOT: 20000
+    MACE: 17500
+    ENCHANTED_GOLDEN_APPLE: 17500
+    TOTEM_OF_UNDYING: 15000
+    HEART_OF_THE_SEA: 15000
+    WITHER_SKELETON_SKULL: 12500
+    TRIDENT: 12500
+    NETHERITE_UPGRADE_SMITHING_TEMPLATE: 10000
+    HEAVY_CORE: 10000
+    CONDUIT: 10000
+    MUSIC_DISC_PIGSTEP: 7500
+    MUSIC_DISC_OTHERSIDE: 7500
+    MUSIC_DISC_5: 7500
+    SNIFFER_EGG: 7500
+    DIAMOND_BLOCK: 7500
+    ANCIENT_DEBRIS: 6000
+    MUSIC_DISC_RELIC: 6000
+    NETHERITE_SCRAP: 5000
+    ECHO_SHARD: 5000
+    "*SHULKER_BOX": 5000
+    # --- Teuer (hunderte Coins) ---
+    "NETHERITE_*": 15000
+    EMERALD_BLOCK: 3500
+    ENCHANTING_TABLE: 3000
+    RECOVERY_COMPASS: 3000
+    "*DIAMOND_ORE": 1000
+    "DIAMOND_*": 3000
+    "*_SKULL": 3000
+    "*_HEAD": 3000
+    CREAKING_HEART: 2500
+    SCULK_SHRIEKER: 2500
+    GOLD_BLOCK: 1250
+    "*_SMITHING_TEMPLATE": 4500
+    "MUSIC_DISC_*": 2000
+    SCULK_CATALYST: 2000
+    RESPAWN_ANCHOR: 2000
+    END_CRYSTAL: 2000
+    DRAGON_BREATH: 2000
+    SHULKER_SHELL: 2000
+    ENDER_CHEST: 750
+    LODESTONE: 1500
+    SADDLE: 1500
+    NAUTILUS_SHELL: 1500
+    DISC_FRAGMENT_5: 1500
+    CALIBRATED_SCULK_SENSOR: 1500
+    NAME_TAG: 1250
+    ANVIL: 1000
+    DIAMOND: 850
+    BELL: 750
+    SCULK_SENSOR: 750
+    SPONGE: 750
+    GHAST_TEAR: 600
+    BREWING_STAND: 600
+    "CHAINMAIL_*": 450
+    TURTLE_HELMET: 600
+    TURTLE_EGG: 500
+    IRON_BLOCK: 500
+    "*EMERALD_ORE": 500
+    EMERALD: 400
+    ENDER_EYE: 400
+    TRIAL_KEY: 500
+    GOLDEN_APPLE: 300
+    GOLDEN_CARROT: 100
+    "GOLDEN_*": 300
+    CLOCK: 300
+    # --- Mittel ---
+    IRON_INGOT: 60
+    IRON_NUGGET: 10
+    IRON_ORE: 75
+    DEEPSLATE_IRON_ORE: 75
+    IRON_BARS: 20
+    "IRON_*": 200
+    GOLD_INGOT: 150
+    ENDER_PEARL: 200
+    BLAZE_ROD: 200
+    BREEZE_ROD: 200
+    EXPERIENCE_BOTTLE: 200
+    RABBIT_FOOT: 200
+    COMPASS: 200
+    CROSSBOW: 200
+    TURTLE_SCUTE: 200
+    TORCHFLOWER_SEEDS: 200
+    PHANTOM_MEMBRANE: 150
+    ARMADILLO_SCUTE: 150
+    SPORE_BLOSSOM: 150
+    CRYING_OBSIDIAN: 150
+    SHIELD: 150
+    TNT: 125
+    GLISTERING_MELON_SLICE: 125
+    "LEATHER_*": 75
+    OBSIDIAN: 100
+    LEAD: 100
+    BOW: 100
+    WIND_CHARGE: 100
+    SLIME_BALL: 75
+    HONEY_BOTTLE: 60
+    BOOK: 75
+    SHEARS: 75
+    FISHING_ROD: 50
+    AMETHYST_SHARD: 50
+    LAPIS_LAZULI: 40
+    COPPER_INGOT: 30
+    QUARTZ: 30
+    COAL: 25
+    REDSTONE: 25
+    GLOWSTONE_DUST: 25
+    "COOKED_*": 20
+    LEATHER: 30
+
+# ---------------- Spieler-Shop ----------------
+player-shop:
+  # Preisgrenzen (Coins) für das Gesamtangebot
+  min-price: 1
+  max-price: 1000000
+  # So lange bleibt ein Angebot online. Danach landet das Item in der "Abholung".
+  listing-duration-hours: 48
+
+  # --- Verkaufs-Slots (müssen gekauft werden) ---
+  # So viele Slots hat jeder Spieler gratis (1 = der erste Slot ist gratis)
+  free-slots: 1
+  # Preis des ersten Slots. Jeder weitere Slot kostet das Doppelte vom vorherigen
+  # (5, 10, 20, 40, 80 ...).
+  # Höchstens so viele Slots pro Spieler (Gratis-Slots mitgezählt):
+  max-slots: 32
+  slot-base-price: 5
+  slot-price-multiplier: 2
+
+  # --- Schutz gegen "Zwischenlager"-Missbrauch ---
+  # Gebühr beim Einstellen. Sie wird NICHT zurückerstattet (auch nicht beim Abbrechen
+  # oder Ablaufen). So kostet es immer Coins, den Shop als Lager zu nutzen.
+  listing-fee-percent: 5.0
+  min-listing-fee: 1
+  # Steuer beim Verkauf: wird dem Verkäufer vom Erlös abgezogen
+  sale-tax-percent: 5.0
+  # Gebühren und Steuern landen auf dem Konto des Shops (und sind im Glücksrad gewinnbar).
+
+  # Diese Items dürfen NICHT angeboten werden
+  blacklist:
+    - BEDROCK
+    - BARRIER
+    - COMMAND_BLOCK
+    - CHAIN_COMMAND_BLOCK
+    - REPEATING_COMMAND_BLOCK
+    - STRUCTURE_BLOCK
+    - JIGSAW
+    - DEBUG_STICK
+    - LIGHT
+    - SPAWNER
+    - REINFORCED_DEEPSLATE
+
+# ---------------- Glücksrad ----------------
+# Der Einsatz geht auf das Konto des Shops. Gewinne werden vom Konto des Shops bezahlt.
+wheel:
+  # Preis pro Drehung
+  price: 5
+  # Chance, überhaupt etwas zu gewinnen (Trostpreis ODER Jackpot): 0.01 = 1 zu 100
+  win-chance: 0.01
+  # Chance auf den Jackpot (= das GANZE Shop-Konto): 0.001 = 1 zu 1000
+  # (Der Jackpot ist Teil der Gewinnchance oben, also muss dieser Wert kleiner sein.)
+  jackpot-chance: 0.001
+  # Trostpreise (nur wenn gewonnen wird, aber kein Jackpot): "amount" wird vom Shop-Konto bezahlt
+  # (höchstens so viel, wie drauf ist), "weight" ist die relative Häufigkeit.
+  prizes:
+    p1: {amount: 25,   weight: 40}
+    p2: {amount: 50,   weight: 25}
+    p3: {amount: 100,  weight: 15}
+    p4: {amount: 250,  weight: 10}
+    p5: {amount: 500,  weight: 6}
+    p6: {amount: 1000, weight: 3}
+    p7: {amount: 2500, weight: 1}
+
+# ---------------- Börse ----------------
+# Ein Kurs für alle. Er ändert sich einmal am Tag zusammen mit dem Shop-Wechsel.
+# Man kauft Anteile mit einem beliebigen Coin-Betrag (nur ganze Anteile, Rest wird nicht abgebucht).
+# Beispiel: Kurs 2, du zahlst 10 Coins -> (ohne Gebühr) 5 Anteile. Steigt der Kurs auf 4, sind sie 20 Coins wert.
+stock:
+  # Gebühr (Ausgabeaufschlag) in Prozent, bei Kauf UND Verkauf. Sie geht aufs Shop-Konto.
+  fee-percent: 10
+  # Kurs beim allerersten Start
+  start-price: 10
+  # Der Kurs bleibt immer zwischen diesen Grenzen (höchstens 100)
+  min-price: 1
+  max-price: 100
+  # Wie stark der Kurs pro Tag schwankt (0.45 = typisch etwa +-45 %, große Sprünge sind möglich)
+  volatility: 0.45
+  # Zu diesem Kurs wird der Kurs sanft hingezogen, damit er nicht dauerhaft bei 1 oder 100 klebt
+  anchor-price: 20
+  reversion: 0.08
+  # Wie viele Tage Verlauf im Menü angezeigt werden
+  history-days: 7
+  # Die festen Kauf-Beträge im Menü (die ersten 3 werden angezeigt)
+  quick-amounts: [10, 100, 1000]
+
+# ---------------- Investitionen (Sets) ----------------
+# Jedes Item eines Sets gibt es nur EINMAL auf dem Server (wie Straßen bei Monopoly).
+# "price" = Preis pro Item = tägliches Einkommen, wenn man das KOMPLETTE Set besitzt.
+# Teilbesitz bringt einen Teil des Einkommens (siehe percent-by-owned-count).
+# Achtung: Die Namen der Einträge (set01, set02 ...) werden zum Speichern benutzt - nicht umbenennen!
+investments:
+  # Wie viel Prozent des Set-Einkommens man bekommt, wenn man 1, 2 ... Items des Sets besitzt.
+  # (Das komplette Set bringt immer 100 %.)
+  percent-by-owned-count:
+    1: 10
+    2: 35
+  sets:
+    set01: {name: "Drachenhort",          price: 1000, items: [DRAGON_EGG, ELYTRA, DRAGON_HEAD]}
+    set02: {name: "Netherit-Schmiede",    price: 960,  items: [NETHERITE_INGOT, NETHERITE_UPGRADE_SMITHING_TEMPLATE, ANCIENT_DEBRIS]}
+    set03: {name: "Herz des Ozeans",      price: 925,  items: [HEART_OF_THE_SEA, TRIDENT, CONDUIT]}
+    set04: {name: "Wither-Festung",       price: 890,  items: [NETHER_STAR, WITHER_SKELETON_SKULL, BEACON]}
+    set05: {name: "Unsterblichkeit",      price: 850,  items: [TOTEM_OF_UNDYING, ENCHANTED_GOLDEN_APPLE, EXPERIENCE_BOTTLE]}
+    set06: {name: "Diamant-Mine",         price: 810,  items: [DIAMOND_BLOCK, DIAMOND_PICKAXE, DIAMOND_ORE]}
+    set07: {name: "End-Stadt",            price: 775,  items: [SHULKER_BOX, SHULKER_SHELL, END_CRYSTAL]}
+    set08: {name: "Dorfhandel",           price: 740,  items: [EMERALD_BLOCK, LECTERN, BELL]}
+    set09: {name: "Alchemisten-Labor",    price: 700,  items: [BREWING_STAND, GHAST_TEAR, BLAZE_ROD]}
+    set10: {name: "Zauberturm",           price: 660,  items: [ENCHANTING_TABLE, BOOKSHELF, LAPIS_BLOCK]}
+    set11: {name: "Tiefen-Schatz",        price: 625,  items: [ECHO_SHARD, SCULK_CATALYST, RECOVERY_COMPASS]}
+    set12: {name: "Goldrausch",           price: 590,  items: [GOLD_BLOCK, GOLDEN_APPLE, GOLDEN_CARROT]}
+    set13: {name: "Piglin-Bastion",       price: 550,  items: [GILDED_BLACKSTONE, CRYING_OBSIDIAN, RESPAWN_ANCHOR]}
+    set14: {name: "Schallplatten-Sammlung", price: 510, items: [MUSIC_DISC_PIGSTEP, MUSIC_DISC_OTHERSIDE, DISC_FRAGMENT_5]}
+    set15: {name: "Redstone-Werkstatt",   price: 475,  items: [REDSTONE_BLOCK, OBSERVER, STICKY_PISTON]}
+    set16: {name: "Bahnhof",              price: 440,  items: [POWERED_RAIL, DETECTOR_RAIL, MINECART]}
+    set17: {name: "Farm-Imperium",        price: 400,  items: [HAY_BLOCK, MELON, PUMPKIN]}
+    set18: {name: "Seefahrer",            price: 360,  items: [COMPASS, CLOCK, SPYGLASS]}
+    set19: {name: "Schmiede",             price: 325,  items: [ANVIL, GRINDSTONE, SMITHING_TABLE]}
+    set20: {name: "Hüttenwerk",           price: 290,  items: [BLAST_FURNACE, SMOKER, FURNACE]}
+    set21: {name: "Bibliothek",           price: 250,  items: [BOOK, WRITABLE_BOOK, NAME_TAG]}
+    set22: {name: "Imkerei",              price: 210,  items: [BEEHIVE, HONEY_BLOCK, HONEYCOMB]}
+    set23: {name: "Tiefsee-Angler",       price: 175,  items: [FISHING_ROD, NAUTILUS_SHELL, PUFFERFISH]}
+    set24: {name: "Holzfäller",           price: 140,  items: [IRON_AXE, OAK_LOG, CRAFTING_TABLE]}
+    set25: {name: "Steinbruch",           price: 100,  items: [STONE_PICKAXE, COBBLESTONE, TORCH]}

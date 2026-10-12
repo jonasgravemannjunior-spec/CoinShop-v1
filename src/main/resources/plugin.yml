@@ -1,0 +1,32 @@
+# Steckbrief des Plugins - der Server liest diese Datei beim Start.
+name: CoinShop
+version: 1.0.0
+main: de.coinshop.CoinShopPlugin
+# Falls der Server beim Start meldet, die API-Version sei nicht unterstützt,
+# trage hier die Version deines Servers ein (z. B. '26.3').
+api-version: '26.1'
+description: Coins als Währung (durch Erfolge verdienbar) plus Server-Shop und Spieler-Shop
+author: Jonas
+
+commands:
+  coins:
+    description: Zeigt deinen Kontostand oder den eines anderen Spielers
+    usage: /coins [Spieler]
+  pay:
+    description: Überweise Coins an einen anderen Spieler
+    usage: /pay [Spieler] [Betrag]
+  baltop:
+    description: Zeigt die Rangliste der reichsten Spieler
+    usage: /baltop
+  shop:
+    description: Öffnet den Shop
+    usage: /shop
+  coinsadmin:
+    description: Verwaltung für Admins
+    usage: /coinsadmin [give|take|set|resetshop|reload]
+    permission: coinshop.admin
+
+permissions:
+  coinshop.admin:
+    description: Darf Coins verwalten und den Server-Shop zurücksetzen
+    default: op
